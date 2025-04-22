@@ -16,7 +16,7 @@ ChatGPT (GPT-4), OpenAI, 2025
 Results
 Tables:
 Prompts:
-Link to repository:
+Link to repository: https://github.com/aashikauppala/lab10
 Link to app: https://laughing-rotary-phone-r46wx6q96gw7c5w5q.github.dev/
 
 Discussion 
