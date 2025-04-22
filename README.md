@@ -1,4 +1,5 @@
 # lab_10
+Laboratory 10. Python and AI
 Aashika Uppala
 4/22/2025
 
