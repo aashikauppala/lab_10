@@ -95,16 +95,4 @@ Note: The link to our app worked originally, but now when you go to the link, th
 This lab demonstrated the power of combining AI tools with programming to solve real-world data challenges. By leveraging LLM-generated code, we were able to quickly build and debug functions for parsing and visualizing large datasets. We also learned the importance of prompt iteration and specificity when collaborating with AI models. The Streamlit app showcases how code can be converted into a practical tool for scientific communication and public accessibility.
 
 ## Conclusion
-This lab reinforced practical skills in data analysis using Pandas and introduced web deployment via Streamlit. 
-
-Key takeaways include:
-
-Effective data cleaning and filtering using Python
-
-Visualizing trends to derive meaningful insights
-
-Learning how to prompt AI to write efficient, modular code
-
-Creating and deploying real-time applications from codebases
-
-These tools and skills have broad implications for environmental monitoring, research communication, and data-driven policy decisions.
+This lab reinforced practical skills in data analysis using Pandas and introduced web deployment through Streamlit. Key takeaways included effective data cleaning and filtering using Python, visualizing trends to derive meaningful insights, and learning how to prompt AI to write efficient, modular code. Additionally, the lab covered the creation and deployment of real-time applications from codebases. These tools and skills have broad implications for environmental monitoring, research communication, and data-driven policy decisions.
