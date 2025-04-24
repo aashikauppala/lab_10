@@ -27,7 +27,7 @@ Generate a Python function that accesses the database, filters for the names of 
 Generate a Python function that creates a map that pinpoints the location of every station in the database
 
 Link to repository: https://github.com/aashikauppala/lab10
-Link to app: https://laughing-rotary-phone-r46wx6q96gw7c5w5q.github.dev/
+Link to app: [https://laughing-rotary-phone-r46wx6q96gw7c5w5q.github.dev/](https://laughing-rotary-phone-r46wx6q96gw7c5w5q-8501.app.github.dev/)
 
 ## Discussion 
 This lab demonstrated the power of combining AI tools with programming to solve real-world data challenges. By leveraging LLM-generated code, we were able to quickly build and debug functions for parsing and visualizing large datasets. We also learned the importance of prompt iteration and specificity when collaborating with AI models. The Streamlit app showcases how code can be converted into a practical tool for scientific communication and public accessibility.
