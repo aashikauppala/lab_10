@@ -91,6 +91,99 @@ Link to app: https://lab10maps.streamlit.app/
 
 Note: The link to our app worked originally, but now when you go to the link, the page is empty. You might have to fork the page and allow it to redirect you to GitHub and open the app from the GitHub page. 
 
+## Code
+import streamlit as st
+import pandas as pd
+import folium
+from streamlit_folium import folium_static
+import matplotlib.pyplot as plt
+
+st.title("Water Quality Monitoring Dashboard")
+
+# --- Upload CSV files ---
+st.sidebar.header("Upload CSV Files")
+result_file = st.sidebar.file_uploader("Upload result_data CSV", type="csv")
+station_file = st.sidebar.file_uploader("Upload station_data CSV", type="csv")
+
+# --- Only proceed if both files are uploaded ---
+if result_file is not None and station_file is not None:
+    result_data = pd.read_csv(result_file)
+    station_data = pd.read_csv(station_file)
+
+    # --- Convert columns to correct types ---
+    result_data['ActivityStartDate'] = pd.to_datetime(result_data['ActivityStartDate'], errors='coerce')
+    result_data['ResultMeasureValue'] = pd.to_numeric(result_data['ResultMeasureValue'], errors='coerce')
+
+    # Drop invalid/missing rows
+    result_data = result_data.dropna(subset=['ActivityStartDate', 'ResultMeasureValue'])
+
+    # --- Sidebar filters ---
+    st.sidebar.header("Filter Options")
+    contaminant_list = sorted(result_data['CharacteristicName'].dropna().unique())  # 👈 Sorted alphabetically
+
+    # Default to "Barium" if available
+    default_index = contaminant_list.index('Barium') if 'Barium' in contaminant_list else 0
+    contaminant = st.sidebar.selectbox("Select a contaminant:", contaminant_list, index=default_index)
+
+    filtered_data = result_data[result_data['CharacteristicName'] == contaminant]
+    min_val = float(filtered_data['ResultMeasureValue'].min())
+    max_val = float(filtered_data['ResultMeasureValue'].max())
+
+    min_value, max_value = st.sidebar.slider("Select value range:", min_val, max_val, (min_val, max_val))
+
+    start_date, end_date = st.sidebar.date_input(
+        "Select date range:",
+        [filtered_data['ActivityStartDate'].min(), filtered_data['ActivityStartDate'].max()]
+    )
+
+    # Filter data
+    filtered_result_data = filtered_data[
+        (filtered_data['ResultMeasureValue'] >= min_value) &
+        (filtered_data['ResultMeasureValue'] <= max_value) &
+        (filtered_data['ActivityStartDate'] >= pd.to_datetime(start_date)) &
+        (filtered_data['ActivityStartDate'] <= pd.to_datetime(end_date))
+    ]
+
+    if filtered_result_data.empty:
+        st.warning("No data matches your filters.")
+    else:
+        # --- Map ---
+        map_center = [station_data['LatitudeMeasure'].mean(), station_data['LongitudeMeasure'].mean()]
+        site_map = folium.Map(location=map_center, zoom_start=6)
+
+        for _, row in filtered_result_data.iterrows():
+            site_info = station_data[station_data['MonitoringLocationIdentifier'] == row['MonitoringLocationIdentifier']]
+            if not site_info.empty:
+                site_name = site_info.iloc[0]['MonitoringLocationName'] if 'MonitoringLocationName' in site_info.columns else "Unknown Site"
+                popup_text = f"{site_name}<br>{contaminant}: {row['ResultMeasureValue']}"
+                folium.Marker(
+                    location=[site_info.iloc[0]['LatitudeMeasure'], site_info.iloc[0]['LongitudeMeasure']],
+                    popup=popup_text
+                ).add_to(site_map)
+
+        st.subheader("Monitoring Locations Map")
+        folium_static(site_map)
+
+        # --- Chronological Plot ---
+        st.subheader(f"{contaminant} Trend Over Time")
+
+        plt.figure(figsize=(10, 6))
+        for site in filtered_result_data['MonitoringLocationIdentifier'].unique():
+            site_data = filtered_result_data[filtered_result_data['MonitoringLocationIdentifier'] == site]
+            site_data = site_data.sort_values('ActivityStartDate')  # 👈 Chronological order
+            plt.plot(site_data['ActivityStartDate'], site_data['ResultMeasureValue'], label=site)
+
+        plt.xlabel('Date')
+        plt.ylabel(f'{contaminant} Value')
+        plt.title(f'{contaminant} Over Time')
+        plt.legend()
+        plt.grid(True)
+        st.pyplot(plt.gcf())
+
+else:
+    st.info("Please upload both `result_data` and `station_data` CSV files to get started.")
+
+
 ## Discussion 
 This lab demonstrated the power of combining AI tools with programming to solve real-world data challenges. By leveraging LLM-generated code, we were able to quickly build and debug functions for parsing and visualizing large datasets. We also learned the importance of prompt iteration and specificity when collaborating with AI models. The Streamlit app showcases how code can be converted into a practical tool for scientific communication and public accessibility.
 
