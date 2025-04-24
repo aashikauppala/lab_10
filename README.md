@@ -86,7 +86,7 @@ I want to sort the database so that the data is in chronological order and chara
 
 
 Link to repository: https://github.com/aashikauppala/lab10
-Link to app: [https://laughing-rotary-phone-r46wx6q96gw7c5w5q.github.dev/](https://laughing-rotary-phone-r46wx6q96gw7c5w5q-8501.app.github.dev/)
+Link to app: [[https://laughing-rotary-phone-r46wx6q96gw7c5w5q.github.dev/](https://laughing-rotary-phone-r46wx6q96gw7c5w5q-8501.app.github.dev/)](https://lab10maps.streamlit.app/)
 
 ## Discussion 
 This lab demonstrated the power of combining AI tools with programming to solve real-world data challenges. By leveraging LLM-generated code, we were able to quickly build and debug functions for parsing and visualizing large datasets. We also learned the importance of prompt iteration and specificity when collaborating with AI models. The Streamlit app showcases how code can be converted into a practical tool for scientific communication and public accessibility.
