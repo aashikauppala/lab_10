@@ -91,7 +91,7 @@ _Link to app:_ https://lab10maps.streamlit.app/
 
 Note: The link to our app worked originally, but now when you go to the link, the page is empty. You might have to fork the page and allow it to redirect you to GitHub and open the app from the GitHub page. 
 
-## Code
+### Code
 ```c++
 import streamlit as st
 import pandas as pd
