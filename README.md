@@ -13,9 +13,10 @@ The objective of this lab was to use Python and AI tools to develop user-friendl
 
 • A Python compiler and IDE like Anaconda Cloud
 
+### Main goal of code:
 To develop scripts and an app capable of parsing and visualizing water quality data by site and contaminant trends.
 
-AI Models Used:
+### AI Models Used:
 
 CoPilot, ChatGPT (GPT-4), OpenAI, 2025
 
@@ -85,8 +86,10 @@ File "/home/vscode/.local/lib/python3.11/site-packages/folium/utilities.py", lin
 I want to sort the database so that the data is in chronological order and characteristics are in alphabetical order. Also, can you plot by day instead of by month?
 
 
-Link to repository: https://github.com/aashikauppala/lab10
-Link to app: [[https://laughing-rotary-phone-r46wx6q96gw7c5w5q.github.dev/](https://laughing-rotary-phone-r46wx6q96gw7c5w5q-8501.app.github.dev/)](https://lab10maps.streamlit.app/)
+
+Link to app: https://lab10maps.streamlit.app/
+
+Note: The link to our app worked originally, but now when you go to the link, the page is empty. You might have to fork the page and allow it to redirect you to GitHub and open the app from the GitHub page. 
 
 ## Discussion 
 This lab demonstrated the power of combining AI tools with programming to solve real-world data challenges. By leveraging LLM-generated code, we were able to quickly build and debug functions for parsing and visualizing large datasets. We also learned the importance of prompt iteration and specificity when collaborating with AI models. The Streamlit app showcases how code can be converted into a practical tool for scientific communication and public accessibility.
