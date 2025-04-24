@@ -92,6 +92,7 @@ Link to app: https://lab10maps.streamlit.app/
 Note: The link to our app worked originally, but now when you go to the link, the page is empty. You might have to fork the page and allow it to redirect you to GitHub and open the app from the GitHub page. 
 
 ## Code
+'''c++
 import streamlit as st
 import pandas as pd
 import folium
@@ -182,7 +183,7 @@ if result_file is not None and station_file is not None:
 
 else:
     st.info("Please upload both `result_data` and `station_data` CSV files to get started.")
-
+'''
 
 ## Discussion 
 This lab demonstrated the power of combining AI tools with programming to solve real-world data challenges. By leveraging LLM-generated code, we were able to quickly build and debug functions for parsing and visualizing large datasets. We also learned the importance of prompt iteration and specificity when collaborating with AI models. The Streamlit app showcases how code can be converted into a practical tool for scientific communication and public accessibility.
