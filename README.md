@@ -85,9 +85,9 @@ File "/home/vscode/.local/lib/python3.11/site-packages/folium/utilities.py", lin
 ### Prompt 17:
 I want to sort the database so that the data is in chronological order and characteristics are in alphabetical order. Also, can you plot by day instead of by month?
 
+_Link to repository:_ https://github.com/aashikauppala/lab10.git
 
-
-Link to app: https://lab10maps.streamlit.app/
+_Link to app:_ https://lab10maps.streamlit.app/
 
 Note: The link to our app worked originally, but now when you go to the link, the page is empty. You might have to fork the page and allow it to redirect you to GitHub and open the app from the GitHub page. 
 
